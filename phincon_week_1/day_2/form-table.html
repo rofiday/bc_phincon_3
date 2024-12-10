@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Table Student</title>
+  <style>
+    .w-100 {
+      width: 100%;
+    }
+
+    tr>td {
+      font-weight: bold;
+      padding-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 style="color: blue; text-decoration: underline;">Form Table Student</h1>
+  <form>
+    <table>
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td><input class="w-100" type="text"></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input class="w-100" type="email"></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input class="w-100" type="password"></td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>
+            <select name="" id="" class="w-100">
+              <option value="">Select your gender</option>
+              <option value="male">male</option>
+              <option value="female">female</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Specialist</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="radio" name="specialist" id="javascript">
+            <label for="javascript">JavaScript</label>
+            <input type="radio" name="specialist" id="android">
+            <label for="android">Android</label>
+            <input type="radio" name="specialist" id="ios">
+            <label for="ios">IOS Swift</label>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button class="w-100">Submit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</body>
+
+</html>

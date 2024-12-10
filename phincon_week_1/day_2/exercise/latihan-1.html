@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 1</title>
+  <style>
+    .bg-blue {
+      background-color: rgb(170, 212, 250);
+    }
+
+    .container {
+      background-color: #fff;
+      margin: auto;
+      margin-top: 100px;
+      align-items: center;
+      width: 400px;
+      border-radius: 5px;
+      padding: 15px;
+    }
+
+    .text-blue {
+      color: blue;
+      font-size: 24px;
+      font-weight: normal;
+      text-align: end;
+    }
+
+    .w-100 {
+      width: 100%;
+      padding: 0;
+    }
+
+    td>select {
+      width: 101%;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: blue;
+      box-sizing: border-box;
+      color: #fff;
+      outline: none;
+      border: none;
+      margin-top: 10px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      /* padding-top: 1px; */
+    }
+  </style>
+</head>
+
+<body class="bg-blue">
+  <div class="container">
+    <form>
+      <table class="w-100">
+        <tbody class="w-100">
+          <tr>
+            <td>
+              <img
+                src="https://media.licdn.com/dms/image/D560BAQG99Xf8yTVZAw/company-logo_200_200/0/1702864298171?e=2147483647&v=beta&t=ff0cF5XWamaBkLYfHXUSDqvQsrv-ln6b4BaTfdbcpjs"
+                alt="" width="100px" height="100px">
+            </td>
+            <td class="text-blue">Registration Form</td>
+          </tr>
+          <tr>
+            <td colspan="2">Nama Siswa</td>
+          </tr>
+          <tr>
+            <td colspan="2"><input class="w-100" type="text"></td>
+          </tr>
+          <tr>
+            <td colspan="2">Kelas</td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="text" class="w-100"></td>
+          </tr>
+          <tr>
+            <td colspan="2">Jenis Kelamin</td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="radio" name="jenis-kelamin">Laki-laki
+              <input type="radio" name="jenis-kelamin">Perempuan
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">Tanggal Lahir</td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="date" class="w-100"></td>
+          </tr>
+          <tr>
+            <td colspan="2">Pendidikan Terakhir</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <select name="" id="">
+                <option value="">-</option>
+                <option value="">SMA Sederajat</option>
+                <option value="">D3</option>
+                <option value="">S1</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Jurusan</td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="text" class="w-100"></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit" class="btn">Submit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</body>
+
+</html>
