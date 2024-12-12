@@ -1,0 +1,155 @@
+:root {
+  --color: #39b75d;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  list-style-type: none;
+}
+body {
+  font-family: "poppins", sans-serif;
+  min-height: 5000px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 9%;
+}
+/* .navbar .input-group {
+  width: 191px;
+  margin-right: -100px;
+} */
+.navbar .input-group span i {
+  margin-right: -30px;
+  opacity: 0.2;
+}
+.navbar .input-group input {
+  background-color: transparent;
+  height: 30px;
+  width: 200px;
+  z-index: -20;
+  padding-left: 30px;
+  opacity: 0.1;
+}
+.navbar .btn {
+  margin-left: -60px;
+}
+.navbar .btn button {
+  background-color: var(--color);
+  border: none;
+  padding: 0.5rem 2rem;
+  vertical-align: center;
+  border-radius: 5px;
+}
+.navbar .btn button {
+  font-size: 14px;
+  color: #fff;
+}
+.navbar .btn button:hover {
+  color: #000;
+}
+.navbar .navbar-nav {
+  display: flex;
+  /* gap: 1.2rem; */
+}
+.navbar .navbar-nav a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  color: #000;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+.navbar .navbar-nav a:hover {
+  color: var(--color);
+}
+.navbar .navbar-nav select {
+  border: none;
+  width: 65px;
+}
+.navbar .img-right {
+  position: relative;
+  right: 76px;
+}
+
+.navbar .img-right img {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+/* hero section start */
+.bg-grey {
+  background-color: #f8f8f8;
+}
+.container {
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  /* margin-left: -15px; */
+  /* padding: 0 0.5rem; */
+  height: 3rem;
+}
+.container .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .row .sub-menu .pip {
+  opacity: 0.2;
+  margin: 0 1rem;
+}
+.container .row .sub-menu {
+  display: flex;
+  align-items: center;
+}
+.container .row .sub-menu a {
+  color: #000;
+}
+
+.banner {
+  padding-top: 1rem;
+}
+.banner img {
+  width: 100%;
+}
+/* hero section end */
+/* about */
+.about {
+  display: flex;
+  align-items: center;
+}
+.about .about-content {
+  padding: 0 9%;
+}
+.about .about-content h1,
+p {
+  padding: 0.3rem 0;
+}
+/* .about .about-content p {
+  padding: ;
+} */
+.fix {
+  position: fixed;
+  bottom: 40px;
+  right: -100;
+}
+.fix .wa .box {
+  background-color: rgb(37, 211, 102);
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 100%;
+  font-size: 35px;
+  padding-left: 13px;
+  padding-top: 3px;
+}
+.fix .wa .box a {
+  /* font-size: 80px; */
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
+}
