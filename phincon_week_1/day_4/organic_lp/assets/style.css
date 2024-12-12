@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: rgb(5, 90, 5);
+}
+body {
+  min-height: 90vh;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4%;
+  position: relative;
+}
+.navbar .logo {
+  font-size: 2rem;
+}
+.navbar .left {
+  display: flex;
+  position: absolute;
+  gap: 2rem;
+  left: 17rem;
+  font-size: 1.2rem;
+}
+.navbar .right {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.2rem;
+}
+.navbar .right span i {
+  background-color: transparent;
+  color: rgb(5, 90, 5);
+}
+.container {
+  display: flex;
+  gap: 2rem;
+  padding: 5rem 4%;
+}
+.container .content {
+  height: 400px;
+  width: 400px;
+  margin: auto;
+  padding-top: 5rem;
+}
+.container .content .text {
+  line-height: 2;
+}
+.container .content .text h3 {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+.container .content .text h1 {
+  line-height: 1.4;
+  letter-spacing: 1px;
+  font-size: 3rem;
+}
+.container .content .text p {
+  padding-top: 1rem;
+  line-height: 1.5;
+}
+
+.container .content .text .btn {
+  padding-top: 0.5rem;
+}
+.container .content .text .btn button {
+  background-color: rgb(57, 124, 24);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.container .content .text .btn button:hover,
+i {
+  background-color: #000;
+  color: rgb(57, 124, 24);
+}
+.container .content .text .btn i {
+  color: #fff;
+  background-color: transparent;
+  display: inline-block;
+  padding-right: 0.5rem;
+}
+.container .content .text img {
+  position: absolute;
+  top: 195px;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  right: 0;
+  min-height: 10vh;
+  z-index: -1;
+  left: 640px;
+  opacity: 0.4;
+}
