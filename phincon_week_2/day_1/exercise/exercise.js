@@ -3,11 +3,10 @@
   -kesalahan tidak dibuat secara dinamis sebagai parameter
  */
 const capitalFunc = (word) => {
-  // let word = "Cobain dulu aja gagal belakangan";
   let result = word.toUpperCase();
   return result;
 };
-// console.log(capitalFunc("tes"));
+console.log(capitalFunc("tes"));
 
 /*
  * menerima sebuah string dan mengembalikan nilai vokal (a,i,u,e,o)
@@ -30,7 +29,7 @@ const vocal = () => {
   }
   return newArray.length;
 };
-// console.log(vocal());
+console.log(vocal());
 /*
  * 3. mengembalikan nilai kalimat terpanjang
   *array pasti bisa di looping 
@@ -49,11 +48,15 @@ const getLongestCharacter = (sentence) => {
   }
   return max;
 };
-// console.log(getLongestCharacter("saya ingin meminjam buku perkembangbiakan"));
+console.log(getLongestCharacter("saya ingin meminjam buku perkembangbiakan"));
+/*
+* 
 // const getSmallCharacter = (sentence) => {
 //   let result = sentence.split(" ");
 //   let min = 0;
 // };
+
+*/
 /*
  * membuat function untuk mengecek apakah string palindrome (dibaca sama dari depan dan belakang)
  */
@@ -65,7 +68,7 @@ const textPalindrome = (sentence) => {
   }
   return newArray.join("") === sentence;
 };
-// console.log(textPalindrome("phincon"));
+console.log(textPalindrome("tamat"));
 /*
  *  Intermediate 1
 
@@ -73,10 +76,9 @@ const textPalindrome = (sentence) => {
 
 const whiteSpace = (sentence) => {
   let result = sentence.trim();
-  // console.log(resultBackspace);
   return result;
 };
-// console.log(whiteSpace("     Hello World    "));
+console.log(whiteSpace("     Hello World    "));
 
 /*
  * mengembalikan kata
@@ -90,15 +92,14 @@ const reserveSentence = (sentence) => {
   }
   return newArray.join(" ");
 };
-// console.log(reserveSentence("Hello World"));
+console.log(reserveSentence("Hello World"));
 
 /*
  * menghitung berapa kali sebuah kata muncul dalam kalimat
  */
 const searchWordInline = (sentence, word) => {
-  // let regInsensitive = /w3school/i;
   let pattern = new RegExp(word, "gi");
   let result = sentence.match(pattern);
   return result ? result.length : 0;
 };
-console.log(searchWordInline("tes tes Lagi", ""));
+console.log(searchWordInline("tes tes Lagi", "tes"));
