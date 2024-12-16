@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Introduction</title>
+</head>
+
+<body>
+  <div id="container">Hello World</div>
+  <button id="btn">Submit</button>
+  <button id="btn2" onclick="test()">Submit 2</button>
+  <script>
+    let i = 1;
+    // select element html
+    const container = document.getElementById('container');
+    const button = document.getElementById('btn')
+    // const button2 = document.getElementById('btn2')
+    //debug apakah element html sudah berhasil diseleksi atau belum.
+    console.log(container)
+    // manipulasi element
+    container.textContent = "Phincon Academy"
+    container.style.color = "blue"
+    container.style.fontSize = "50px"
+    // membuat event atau aksi ketika mouse klik atau etc
+    container.addEventListener('click', () => {
+      alert("PHINCON ACADEMY")
+    })
+    button.addEventListener('click', () => {
+      console.log(i)
+      i++
+    })
+    function test() {
+      alert('halo polisii..')
+    }
+
+  </script>
+</body>
+
+</html>
