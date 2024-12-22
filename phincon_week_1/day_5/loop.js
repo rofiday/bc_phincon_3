@@ -21,7 +21,7 @@ console.log(i);
 }
 
 */
-
+//angka genap dari 20-40 && 60-80
 // for (let i = 1; i <= 100; i++) {
 //   if (i >= 20 && i <= 40) {
 //     if (i % 2 == 0) {
