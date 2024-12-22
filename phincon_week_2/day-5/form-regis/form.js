@@ -16,7 +16,7 @@ btn.addEventListener("click", (e) => {
   const jurusan = document.getElementById("jurusan").value;
   const table = document.getElementById("table");
   table.innerHTML += `<tr>
-            <th>${name}</th>
+            <td>${name}</td>
             <td> ${kelas}</td>
             <td>${genderL}</td>
             <td>${date}</td>
