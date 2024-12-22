@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon"
+    href="https://tse1.mm.bing.net/th?id=OIP.-TZsiRzUSVnR_3xMVmvdvwAAAA&pid=Api&P=0&h=220">
+  <title>DOM Selectors</title>
+  <style>
+    #btn {
+      background-color: blue;
+      color: white;
+    }
+  </style>
+</head>
+
+<body id="body">
+  <h1>Phincon Academy</h1>
+  <ul id="list" class="list" name="list">
+    <li>Rofi</li>
+    <li>Zaenal</li>
+  </ul>
+  <ul id="listTwo" class="list" name="list">
+    <li>Pak Sigit</li>
+    <li>Haidar</li>
+  </ul>
+  <ul id="listThree">
+  </ul>
+  <button id="btn">Klik Saya</button>
+  <script src="assets/javascripts/dom.js"></script>
+  <script type="module">
+    import { getAreaRectangle } from "./assets/javascripts/two-dimentional-figure.js";
+    import { getBallVolume } from "./assets/javascripts/three-dimentional-figure.js";
+    console.log(getAreaRectangle(10, 20));
+    console.log(getBallVolume(10));
+  </script>
+</body>
+
+</html>
