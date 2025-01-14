@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+#container .card {
+  min-width: 300px;
+  text-align: center;
+  margin: 2rem;
+}
+#container .card ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+#container .card ol li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 0 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}

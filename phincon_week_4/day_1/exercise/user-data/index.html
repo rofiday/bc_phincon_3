@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Async Await User Data</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="row">
+    <div id="container" class="container">
+    </div>
+    <div class="detail">
+      <ul class="detail-user"></ul>
+
+    </div>
+
+  </div>
+  <script>
+    let data;
+    const listName = document.querySelector('.list-name');
+    const container = document.getElementById('container');
+    async function getAllName() {
+      // listName.innerHTML = 'Loading Data...';
+      // container.innerHTML = '';
+      const nameUser = await fetch('https://jsonplaceholder.typicode.com/users')
+      // listName.innerHTML = '';
+      data = await nameUser.json();
+      for (let i in data) {
+        container.innerHTML += `
+        <div class="card">
+        <ul class="list-name" id="${data[i].id}">
+          <li>${data[i].name}</li>
+          <li>${data[i].email}</li>
+        </ul>
+      </div>
+        `;
+      }
+    }
+
+    // getAllName().then(() => {
+    //   for (let i in data) {
+    //     const li = document.getElementById(data[i].id);
+    //     li.addEventListener('click', () => {
+    //       const dataDetailUser = document.querySelector('.detail-user');
+    //       dataDetailUser.innerHTML =
+    //         `${data[i].name}\n
+    //           ${data[i].email}\n
+    //         ${data[i].phone}\n
+    //         ${data[i].address.street}, ${data[i].address.city}, ${data[i].address.suite}\n`
+    //       // console.log(data[i].name);
+    //     });
+    //   }
+    // }).catch(err => {
+    //   console.log(err);
+    //   document.getElementById("container").innerHTML = err.message;
+    // })
+    (async () => {
+      // await getAllName(); digunakan untuk menunggu semua data keambil
+      try {
+        await getAllName();
+        // for (let i in data) {
+        //   const li = document.getElementById(data[i].id);
+        //   li.addEventListener('click', () => {
+        //     const dataDetailUser = document.querySelector('.detail-user');
+        //     dataDetailUser.innerHTML =
+        //       `${data[i].name}\n
+        //     ${data[i].email}\n
+        //   ${data[i].phone}\n
+        //   ${data[i].address.street}, ${data[i].address.city}, ${data[i].address.suite}\n`
+        //     // console.log(data[i].name);
+        //   });
+        // }
+        for (let i in data) {
+          const ul = document.getElementById(data[i].id);
+          console.log(ul);
+          ul.addEventListener('click', () => {
+            const dataDetailUser = document.querySelector('.detail-user');
+            dataDetailUser.innerHTML =
+              `${data[i].name}\n
+              ${data[i].email}\n
+            ${data[i].phone}\n
+            ${data[i].address.street}, ${data[i].address.city}, ${data[i].address.suite}\n`
+            console.log(data[i].name);
+          });
+        }
+      }
+      catch (err) {
+        console.log(err);
+        document.getElementById("container").innerHTML = err.message;
+      }
+    })()
+  </script>
+</body>
+
+</html>

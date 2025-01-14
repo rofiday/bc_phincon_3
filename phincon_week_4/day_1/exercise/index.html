@@ -1,0 +1,49 @@
+<!-- consume data api pokemon dengan list berupa nama -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consume Data API Pokemon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="card">
+      <ol id="pokemon"></ol>
+    </div>
+
+  </div>
+  <script>
+    async function getAllName() {
+      const pokemon = document.getElementById('pokemon')
+      //get response / data dari endpoint
+      const response = await fetch('https://pokeapi.co/api/v2/pokemon')
+      //menampilkan data
+      const data = await response.json()
+      // console.log(data)
+      for (let i in data.results) {
+        const responseImg = await fetch('https://pokeapi.co/api/v2/pokemon/' + data.results[i].name)
+        const dataImage = await responseImg.json()
+        const img = dataImage.sprites.front_default
+        // console.log(img)
+        pokemon.innerHTML += `
+        <div class="card">
+        <li>
+          <img src="${img}"/> 
+            ${data.results[i].name} 
+        </li>
+        </div>`
+      }
+      //mendapatkan nama dari object
+      //kesimpulan jika ingin menampilkan 2 data yaitu nama dan gambar maka bikin 2 await fetch
+      //1 await fatch untuk mengambil data nama
+      //2 await fetch untuk mengambil data gambar + data.results[i].name
+    }
+    getAllName()
+  </script>
+</body>
+
+</html>

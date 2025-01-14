@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CallBacks</title>
+</head>
+
+<body>
+  <div id="container">Phincon Academy</div>
+  <div id="secondContainer">secondContainer</div>
+  <div id="demo"></div>
+  <img src="" id="pokemonImage" alt="">
+  <script>
+    function displayMessage(message) {
+      const container = document.getElementById('container')
+      container.textContent = message;
+    }
+
+    function calculateData(a, b, callback) {
+      const result = a + b;
+      callback(result);
+    }
+
+    calculateData(2, 3, displayMessage)
+
+    const multiplyOne = (data) => {
+      return data * 1
+    }
+    const multiplyTwo = (data) => {
+      return data * 2
+    }
+    const multiplyThere = (data) => {
+      return data * 3
+    }
+    const multiplyFour = (data) => {
+      const result = multiplyOne(data)
+      return multiplyTwo(result)
+    }
+    const multiplyFive = (data) => {
+      const result = multiplyFour(data)
+      const secondResult = multiplyTwo(result)
+      return multiplyThere(secondResult)
+    }
+    console.log(multiplyFive(5))
+
+    const multiplySix = (data, callbackOne, callbackTwo, callbackThree) => {
+      const result = multiplyFive(data)
+      const resultTwo = callbackThree(result)
+      return callbackTwo(resultTwo) * 20;
+    }
+    console.log(multiplySix(10, multiplyThere, multiplyTwo, multiplyThere))
+
+    const multiplySeven = (data, callback) => {
+      return callback(data)
+    }
+    const result = multiplySeven(10, (test) => {
+      return test * 30
+    })
+    console.log(result)
+
+    setTimeout(() => {
+      console.log("A")
+    }, 5000)
+    setTimeout(() => {
+      console.log("B")
+    }, 3000)
+    async function myDisplay() {
+      let myPromise = new Promise(function (resolve) {
+        resolve("I love You !!");
+      });
+      document.getElementById("demo").innerHTML = await myPromise;
+    }
+
+    myDisplay();
+
+    async function getPokemonData() {
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
+      const data = await response.json();
+      //menampilkan gambar ke html
+      const pokemonImage = data.sprites.front_default;
+      const srcPokemon = document.getElementById("pokemonImage");
+      srcPokemon.src = pokemonImage;
+      console.log(pokemonImage);
+    }
+    getPokemonData();
+  </script>
+</body>
+
+</html>

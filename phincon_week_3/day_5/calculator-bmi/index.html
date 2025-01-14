@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator BMI</title>
+</head>
+
+<body style="min-height: 80vh; margin-top: 100px;">
+  <form style="width: 300px; height: 300px; margin: auto; text-align: center;">
+    <table>
+      <tr>
+        <th>
+          <h1>Calculator BMI</h1>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <label for="height">Tinggi Badan(CM):</label>
+          <input type="number" id="height" placeholder="height" class="height" style="margin-left: 10px;">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="weight" style="margin-top: 20px;">Berat Badan(KG):</label>
+          <input type="number" id="weight" style="margin-left: 10px; " placeholder="weight" class="weight">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"="center" style="text-align: center;">
+          <button id="hitung" style="margin-left: 15px; margin-top: 10px;" class="btn"">Hitung</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <div class=" result" style="display: flex; justify-content: center; align-items: center;"></div>
+            <script src=" main.js"></script>
+</body>
+
+</html>

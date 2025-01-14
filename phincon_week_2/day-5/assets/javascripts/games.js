@@ -59,4 +59,21 @@ const treeChedar = (stop) => {
     console.log(n);
   }
 };
-treeChedar(4);
+// treeChedar(4);
+//membuat versi terbalik dari pohon cedar
+const invertedTreeChedar = (stop) => {
+  for (let i = stop; i >= 1; i--) {
+    let n = " ".repeat(stop - i) + "*";
+    if (i > 1) {
+      n = " ".repeat(stop - i) + "\\" + "*";
+    }
+    for (let j = 1; j < 2 * i - 2; j++) {
+      n += "*";
+    }
+    if (i > 1) {
+      n += "/";
+    }
+    console.log(n);
+  }
+};
+invertedTreeChedar(4);

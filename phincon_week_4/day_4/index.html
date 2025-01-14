@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- modul react  -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Belajar React | Phincon Academy</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.23/"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      text-decoration: none;
+      scroll-behavior: smooth;
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .topnav .icon {
+      display: none;
+    }
+
+    @media screen and (max-width: 600px) {
+      .topnav a:not(:first-child) {
+        display: none;
+      }
+
+      .topnav a.icon {
+        float: right;
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .topnav.responsive {
+        position: relative;
+      }
+
+      .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="./program.css">
+  <link rel="stylesheet" href="./news.css">
+  <link rel="stylesheet" href="./contact.css">
+</head>
+
+<body>
+
+  <div id="mydiv"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React
+
+    const TopNavbar = () => {
+      const [isOpenNavbar, setIsOpenNavbar] = useState(false)
+      //untuk mengecek state perubahan menggunakan useEffect perhatikan dependency
+      const toggleTopNav = () => {
+        setIsOpenNavbar(!isOpenNavbar)
+      };
+
+      return (
+        <div className={isOpenNavbar ? "topnav responsive" : "topnav"} id="myTopnav" style={{ position: "fixed", top: "0", width: "100%", left: "0", right: "0", zIndex: "9999", height: "auto" }}>
+          <a href="#" className="logo">
+            <img src="https://phinconacademy.com/front/assets/img/academy-logo.png" alt="" style={{ "width": "60px" }} />
+          </a>
+          <a href="#home" className="active">Home</a>
+          <a href="#programs">Programs</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a className="icon" onClick={toggleTopNav}>
+            <i className="fa fa-bars"></i>
+          </a>
+        </div>
+      )
+    }
+    const Carousel = () => {
+      return (
+        <div id="myCarousel" className="carousel slide" data-ride="carousel" style={{ display: "flex", alignItems: "center", justifyContent: "center", paddingTop: "50px" }}>
+          <ol className="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+
+          <div className="carousel-inner">
+            <div className="item">
+              <img src="https://phinconacademy.com/front/assets/img/1731051437-banner-tOC7Mpu2P0qFTcAcJEFuvyhbOW5xNvv5Mc5vcPnu.jpg" alt="Chicago" style={{ width: "100%" }} />
+            </div>
+
+            <div className="item active">
+              <img src="https://phinconacademy.com/front/assets/img/1731051357-banner-NamYb5a5eyHy0bY9kgTNVYWFdKeMITvDzxKOVNEd.jpg" alt="Los Angeles" style={{ width: "100%" }} />
+            </div>
+
+            <div className="item">
+              <img src="https://phinconacademy.com/front/assets/img/1731051417-banner-KGcY4OHokp9eEn8X4J9GT96Qd2mbxYZHGDRZ0Sj8.jpg" alt="New york" style={{ width: "100%" }} />
+            </div>
+          </div>
+
+          <a className="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span className="glyphicon glyphicon-chevron-left"></span>
+            <span className="sr-only">Previous</span>
+          </a>
+          <a className="right carousel-control" href="#myCarousel" data-slide="next">
+            <span className="glyphicon glyphicon-chevron-right"></span>
+            <span className="sr-only">Next</span>
+          </a>
+        </div>
+      )
+    }
+    const Programs = () => {
+      return (
+        <div className="programs-container" id="programs">
+          <h1>Berbagai Program Phincon Academy</h1>
+          <div className="programs-grid">
+            <div className="program-card e-learning" style={{ minHeight: '400px' }}>
+              <img
+                src="https://img001.prntscr.com/file/img001/YNk9CIm1QT22AB4rhBuQQg.png"
+                alt="E-learning"
+                width="180px"
+                height="180px"
+                className="program-image"
+              />
+              <h2>E-learning</h2>
+              <p>Pelajari Ratusan Skill Sekali Bayar. Praktik dan Bersertifikat</p>
+              <ul style={{ minHeight: "150px", textAlign: "center" }}>
+                <li>Belajar fleksibel via Video Materi, Bahan Bacaan, Project dan Studi Kasus</li>
+                <li>Praktikal & Actionable. Bertahap dari level Dasar hingga Lanjut</li>
+                <li>Grup Komunitas Diskusi Lifetime. Kelas Gratis Tiap Bulannya</li>
+              </ul>
+              <div className="button-group">
+                <button>Lihat Ratusan Materi</button>
+              </div>
+            </div>
+
+            <div className="program-card bootcamp" style={{ minHeight: '400px' }}>
+              <img
+                src="https://img001.prntscr.com/file/img001/Qh-2JJ9kSLCscUzHG749wA.png"
+                alt="Bootcamp"
+                width="180px"
+                height="180px"
+                className="program-image"
+              />
+              <h2>Bootcamp</h2>
+              <p>Intensive Live Class bersama Experts. Praktikal & Mendalam</p>
+              <ul style={{ minHeight: "150px", textAlign: "center" }}>
+                <li>Kombinasi Case Study, Diskusi dan Praktik di Tiap Sesi. Basic to Advanced</li>
+                <li>Group Mentoring Semi-Privat untuk Bangun Portfolio</li>
+                <li>Tutor Terkurasi. Memiliki Lebih dari 30.000 Alumni</li>
+              </ul>
+              <div className="button-group">
+                <button>Lihat Ragam Bootcamp</button>
+              </div>
+            </div>
+
+            <div className="program-card review-cv" style={{ minHeight: '400px' }}>
+              <img
+                src="https://img001.prntscr.com/file/img001/0fwHuzvAQIesdkXqLGkcbA.png"
+                width="180px"
+                height="180px"
+                alt="Review CV"
+                className="program-image"
+              />
+              <h2>Review CV</h2>
+              <p>Dapatkan review dan dokumen persiapan karir dari HRD</p>
+              <ul style={{ minHeight: "150px", textAlign: "center" }}>
+                <li>Dapatkan 20+ Template CV (Indonesia & English), surat lamaran dan masih banyak lainnya</li>
+                <li>Peluang diterima magang dan kerja full time meningkat dengan bantuan review CV oleh HRD</li>
+                <li>Peluang diterima magang dan kerja full time meningkat dengan bantuan review CV oleh HRD</li>
+              </ul>
+              <div className="button-group">
+                <button>Review CV</button>
+              </div>
+            </div>
+
+            <div className="program-card corporate-service" style={{ minHeight: '400px' }}>
+              <img
+                src="https://img001.prntscr.com/file/img001/NTczx9woRlmu4wKb7H7TFA.png"
+                width="180px"
+                height="180px"
+                alt="Corporate Service"
+                className="program-image"
+              />
+              <h2>Corporate Service</h2>
+              <p>Corporate Training dan Software HRIS Performance Management</p>
+              <ul style={{ minHeight: "135px", textAlign: "center" }}>
+                <li>Menyelenggarakan Corporate Training sesuai kebutuhan. Online & Offline</li>
+                <li>Miliki Software untuk Monitor KPI Performance dan Upskilling Karyawan</li>
+                <li>Dipercaya Ratusan Perusahaan: Microsoft, Telkom, Mandiri, Paragon</li>
+              </ul>
+              <div className="button-group">
+                <button style={{ marginRight: '10px' }}>Corporate Service</button>
+                <button>Software HRIS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    const News = () => {
+      const articles = [
+        {
+          id: 1,
+          title: "Revolusi EduTech: Bagaimana Teknologi Mengubah Cara Kita Belajar",
+          excerpt: "Teknologi pendidikan terus berkembang dengan cepat, membawa inovasi baru dalam cara siswa dan pendidik berinteraksi dengan materi pembelajaran.",
+          image: "https://arsjadrasjid.com/wp-content/uploads/2023/04/ilustrasi-edutech.jpg",
+          date: "2025-01-01",
+        },
+        {
+          id: 2,
+          title: "Platform EduTech Terbaik di Tahun 2025",
+          excerpt: "Berikut adalah daftar platform pendidikan berbasis teknologi yang sedang mendominasi pasar dan bagaimana mereka membantu pembelajaran lebih efektif.",
+          image: "https://tse4.mm.bing.net/th?id=OIP.hvOR67vBt55sh4QQ-mOJrwHaEJ&pid=Api&P=0&h=220",
+          date: "2025-01-02",
+        },
+        {
+          id: 3,
+          title: "Pentingnya AI dalam Dunia EduTech",
+          excerpt: "Kecerdasan buatan memainkan peran penting dalam personalisasi pembelajaran untuk siswa di berbagai tingkatan.",
+          image: "https://img.harianjogja.com/posts/2024/05/05/1173442/artificial-intelligence.jpg",
+          date: "2025-01-03",
+        },
+      ];
+
+      return (
+        <div className="news-container" id="news">
+          <h1>Berita Terbaru di Dunia EduTech</h1>
+          <div className="news-grid" style={{ textAlign: "center" }}>
+            {articles.map((article) => (
+              <div key={article.id} className="news-card">
+                <img src={article.image} alt={article.title} className="news-image" />
+                <div className="news-content">
+                  <h2>{article.title}</h2>
+                  <p className="news-date">{article.date}</p>
+                  <p>{article.excerpt}</p>
+                  <button>Baca Selengkapnya</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    };
+    const Contact = () => {
+      return (
+        <div className="contact-container" id="contact">
+          <h1>Contact Us</h1>
+          <p>We'd love to hear from you! Fill out the form below or reach us through the provided contact details.</p>
+
+          <div className="contact-content">
+            <div className="contact-info" id="viewMap">
+            </div>
+
+            <div className="contact-form">
+              <h2>Contact Form</h2>
+              <form>
+                <label htmlFor="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name..." required />
+
+                <label htmlFor="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email..." required />
+
+                <label htmlFor="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message..." rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      );
+    };
+    const WhatsAppButton = () => {
+      return (
+        <a href="https://wa.me/621234567890" className="whatsapp-icon" target="_blank" rel="noopener noreferrer">
+          <img src="https://clipart.info/images/ccovers/1499955335whatsapp-icon-logo-png.png" alt="WhatsApp" />
+        </a>
+      );
+    };
+    const Home = () => {
+      return (
+        <>
+          <TopNavbar />
+          <Carousel />
+          <Programs />
+          <News />
+          <Contact />
+          <WhatsAppButton />
+        </>
+      )
+    }
+    const container = document.getElementById('mydiv');
+    const root = ReactDOM.createRoot(container);
+    root.render(<Home />)
+  </script>
+  <script>
+    let interval = setInterval(() => {
+      const mapElement = document.getElementById('viewMap');
+      if (mapElement) {
+        clearInterval(interval);
+        require([
+          "esri/Map",
+          "esri/views/MapView",
+          "esri/geometry/Point",
+          "esri/symbols/SimpleMarkerSymbol",
+          "esri/layers/GraphicsLayer",
+          "esri/Graphic"
+        ], function (Map, MapView, Point, SimpleMarkerSymbol, GraphicsLayer, Graphic) {
+          const map = new Map({
+            basemap: "streets-navigation-vector"
+          });
+          const view = new MapView({
+            map: map,
+            center: [106.822692, -6.175392],
+            zoom: 18,
+            container: "viewMap",
+            constraints: {
+              rotationEnabled: false
+            },
+            ui: {
+              components: ["attribution"]
+            }
+          });
+          view.watch("widthBreakpoint", (breakpoint) => {
+            if (breakpoint === "xsmall") {
+              view.constraints.rotationEnabled = false;
+            } else {
+              view.constraints.rotationEnabled = true;
+            }
+          });
+          const point = new Point({
+            longitude: 106.825217,
+            latitude: -6.175392
+          });
+          const simpleMarkerSymbol = new SimpleMarkerSymbol({
+            color: [226, 119, 40],
+            outline: {
+              color: [255, 255, 255],
+              width: 1
+            }
+          });
+          const graphicsLayer = new GraphicsLayer();
+          map.add(graphicsLayer);
+          const graphic = new Graphic({
+            geometry: point,
+            symbol: simpleMarkerSymbol
+          });
+          graphicsLayer.add(graphic);
+        });
+      }
+    }, 100);
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<div id="root"></div>
+
+<body>
+  <script type="text/babel">
+    const Navbar = () => {
+      const [isOpen, setIsOpen] = React.useState(false);
+
+      const handleToggle = () => {
+        setIsOpen(!isOpen);
+      };
+
+      return (
+        <nav className="bg-gray-800 shadow-lg md:flex md:justify-between md:items-center md:px-12 py-4 px-4">
+          <div className="flex items-center justify-between md:w-1/2">
+            <a href="#" className="text-white no-underline hover:text-gray-300">
+              <span className="text-2xl font-bold">Phincon Academy</span>
+            </a>
+            <button className="md:hidden focus:outline-none " onClick={handleToggle}>
+              <svg className="h-6 w-6 fill-current text-white" viewBox="0 0 24 24">
+                <title>Menu</title>
+                <path
+                  d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z">
+                </path>
+              </svg>
+            </button>
+          </div>
+          <ul className={`md:flex md:items-center  ${isOpen ? "" : "hidden"}`} id="menu">
+            <li className="md:mr-6 my-2 mx-4 w-full">
+              <a href="#" className="text-white no-underline hover:bg-white hover:text-black block w-full px-4 py-2">Dashboard</a>
+            </li>
+            <li className="md:mr-6 my-2 mx-4 w-full">
+              <a href="#" className="text-white no-underline hover:bg-white hover:text-black block w-full px-4 py-2">Team</a>
+            </li>
+            <li className="md:mr-6 my-2 mx-4 w-full">
+              <a href="#" className="text-white no-underline hover:bg-white hover:text-black block w-full px-4 py-2">Projects</a>
+            </li>
+            <li className="md:mr-6 my-2 mx-4 w-full">
+              <a href="#" className="text-white no-underline hover:bg-white hover:text-black block w-full px-4 py-2">Calendar</a>
+            </li>
+          </ul>
+        </nav>
+      );
+    }
+    const Features = () => {
+      const features = [
+        {
+          title: "E-learning",
+          description:
+            "Belajar fleksibel dengan ratusan video, proyek praktis, dan komunitas aktif. Cocok untuk semua level, mulai dari dasar hingga mahir.",
+          icon: "🎓",
+        },
+        {
+          title: "Bootcamp",
+          description:
+            "Program intensif dengan mentor ahli. Kombinasi studi kasus, diskusi, dan praktik nyata untuk membangun portofolio yang kuat.",
+          icon: "💻",
+        },
+        {
+          title: "Review CV",
+          description:
+            "Optimalkan peluang karir Anda dengan bantuan profesional. Review CV, surat lamaran, dan profil LinkedIn Anda oleh ahli HR.",
+          icon: "📄",
+        },
+        {
+          title: "Corporate Training",
+          description:
+            "Pelatihan karyawan dan perangkat lunak HRIS yang disesuaikan dengan kebutuhan perusahaan Anda.",
+          icon: "🏢",
+        },
+      ];
+
+      return (
+        <div className="bg-gray-100 py-16 px-6 sm:px-12">
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Features</h2>
+            <p className="text-gray-600 mb-12">
+              Kami menyediakan berbagai program untuk mendukung pengembangan
+              keterampilan Anda. Pilih program yang sesuai dengan kebutuhan Anda.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center"
+                >
+                  <div className="text-5xl mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    };
+    const Pricing = () => {
+      return (
+        <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              Our Pricing Plans
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Choose a plan that suits your needs. Flexible pricing for everyone.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Basic Plan */}
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <h3 className="text-xl font-bold text-gray-900">Basic</h3>
+              <p className="mt-4 text-gray-600">Perfect for individuals just getting started.</p>
+              <p className="mt-6 text-4xl font-extrabold text-gray-900">$19<span className="text-base font-medium text-gray-600">/mo</span></p>
+              <ul className="mt-6 space-y-4 text-gray-600">
+                <li>✔️ Access to all basic features</li>
+                <li>✔️ Email support</li>
+                <li>✔️ Community access</li>
+              </ul>
+              <button className="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+                Choose Basic
+              </button>
+            </div>
+
+            {/* Pro Plan */}
+            <div className="bg-white rounded-lg shadow-md p-6 border-4 border-blue-600">
+              <h3 className="text-xl font-bold text-gray-900">Pro</h3>
+              <p className="mt-4 text-gray-600">For professionals looking to level up.</p>
+              <p className="mt-6 text-4xl font-extrabold text-gray-900">$49<span className="text-base font-medium text-gray-600">/mo</span></p>
+              <ul className="mt-6 space-y-4 text-gray-600">
+                <li>✔️ Everything in Basic</li>
+                <li>✔️ Advanced analytics</li>
+                <li>✔️ Priority support</li>
+              </ul>
+              <button className="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+                Choose Pro
+              </button>
+            </div>
+
+            {/* Enterprise Plan */}
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <h3 className="text-xl font-bold text-gray-900">Enterprise</h3>
+              <p className="mt-4 text-gray-600">Best for large teams and organizations.</p>
+              <p className="mt-6 text-4xl font-extrabold text-gray-900">$99<span className="text-base font-medium text-gray-600">/mo</span></p>
+              <ul className="mt-6 space-y-4 text-gray-600">
+                <li>✔️ Everything in Pro</li>
+                <li>✔️ Dedicated account manager</li>
+                <li>✔️ Custom integrations</li>
+              </ul>
+              <button className="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+                Choose Enterprise
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+
+    const ReviewComponent = () => {
+      return (
+        <div className="bg-gray-100 min-h-screen py-10 px-10">
+          <div className="w-full mx-auto p-6 bg-white rounded-lg shadow-lg">
+            <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Product Review</h1>
+
+            <section className="mt-8 space-y-4">
+              <h2 className="text-2xl font-semibold text-gray-900">User Reviews</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="p-4 bg-gray-50 rounded-lg shadow-md">
+                  <div className="flex items-center">
+                    <img src="https://picsum.photos/id/237/200/300" className="w-12 h-12 rounded-full mr-4" alt="John Doe" />
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900">John Doe</h3>
+                      <p className="text-gray-600 mt-1">"Produk ini sangat mudah digunakan dan sangat membantu dalam meningkatkan produktivitas saya!"</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-4 bg-gray-50 rounded-lg shadow-md">
+                  <div className="flex items-center">
+                    <img src="https://picsum.photos/id/238/200/300" className="w-12 h-12 rounded-full mr-4" alt="Jane Smith" />
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900">Jane Smith</h3>
+                      <p className="text-gray-600 mt-1">"Sangat puas dengan fitur-fiturnya. Desain yang bersih dan performa yang luar biasa."</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-4 bg-gray-50 rounded-lg shadow-md">
+                  <div className="flex items-center">
+                    <img src="https://picsum.photos/id/238/200/300" className="w-12 h-12 rounded-full mr-4" alt="Jane Smith" />
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900">Jane Smith</h3>
+                      <p className="text-gray-600 mt-1">"Sangat puas dengan fitur-fiturnya. Desain yang bersih dan performa yang luar biasa."</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      );
+    };
+    const Home = () => {
+      return (
+        <>
+          <Navbar />
+          <Features />
+          <Pricing />
+          <ReviewComponent />
+        </>
+      )
+    }
+
+    const rootElement = document.getElementById("root");
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(<Home />);
+  </script>
+</body>
+
+</html>

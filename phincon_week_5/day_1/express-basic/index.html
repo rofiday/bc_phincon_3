@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consume API</title>
+</head>
+
+<body>
+  <div id="container"></div>
+  <script>
+    //ambil element
+    const container = document.getElementById('container');
+    //ambil data
+    (async () => {
+      const response = await fetch('http://localhost:3000/api/users/users');
+      const data = await response.json();
+      console.log(data);
+      for (let i in data) {
+        container.innerHTML += `<br>id : ${data[i].id} <br> name: ${data[i].name}`
+        console.log(data[i]);
+      }
+    })()
+  </script>
+</body>
+
+</html>

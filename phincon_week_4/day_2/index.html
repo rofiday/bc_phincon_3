@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- modul react  -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Belajar React | Phincon Academy</title>
+  <style>
+    #mydiv {
+      text-align: center;
+      width: 300px;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 15rem auto;
+    }
+
+
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+    }
+
+    .number {
+      background-color: rgb(170, 212, 250);
+    }
+
+    .student {
+      background-color: rgb(170, 212, 250);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="mydiv"></div>
+
+  <script type="text/babel">
+    const { useState } = React
+    const Children = () => {
+      const [count, setCount] = useState(1)
+      const handleClick = () => {
+        { count < 10 && setCount(count + 1) }
+      }
+      const handleClickDec = () => {
+        { count > 1 && setCount(count - 1) }
+      }
+      return (
+        <>
+          <div>{count}</div>
+          <button onClick={handleClickDec}>-</button>
+          <button onClick={handleClick}>+</button>
+        </>
+      )
+    }
+    const ThirdParent = () => {
+      const students = [
+        { id: 1, name: "Rofi", grade: "A" },
+        { id: 2, name: "Zaenal", grade: "B" },
+        { id: 3, name: "Pak Sigit", grade: "S" }
+      ]
+      return (
+        <>
+          {students.map((student, id) => (
+            <>
+              <div key={student.id} className="student">
+                <h1 key={student.id}>{student.name}</h1>
+                <h2 key={student.id}>{student.grade}</h2>
+              </div>
+            </>
+          ))}
+        </>
+      )
+      console.log(students)
+    }
+
+    const SecondParent = () => {
+      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      return (
+        <>
+          {numbers.map((number, index) =>
+            <div key={index} className="number">{number}</div>
+          )}
+        </>
+      )
+    }
+    const FirstParent = () => {
+      const title = "Phincon Academy";
+      const sum = 5 + 5;
+      const style = {
+        color: "red",
+        textDecoration: "underline"
+      }
+      return (
+        <>
+          <div className="row">
+            <div className="container">
+              <h1 className="title" style={style}>{sum === 7 ? "Hasilnya 7" : "Hasilnya bukan 7"}</h1>
+              <h2>{title}</h2>
+              {sum === 10 && <SecondParent />}
+            </div>
+            <ThirdParent />
+            <Children />
+          </div>
+        </>
+      )
+    }
+
+    const container = document.getElementById('mydiv');
+    const root = ReactDOM.createRoot(container);
+    root.render(<FirstParent />)
+  </script>
+
+</body>
+
+</html>

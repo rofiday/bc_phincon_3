@@ -1,0 +1,75 @@
+.programs-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  padding-top: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  min-height: 350px;
+}
+
+.program-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.program-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.program-card ul {
+  text-align: left;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.program-card ul li {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.program-card button {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.program-card button:hover {
+  background-color: #0056b3;
+}
+
+.e-learning {
+  border-top: 5px solid #ff6b6b;
+}
+
+.bootcamp {
+  border-top: 5px solid #1c92f2;
+}
+
+.review-cv {
+  border-top: 5px solid #845ec2;
+}
+
+.corporate-service {
+  border-top: 5px solid #f9a825;
+}
