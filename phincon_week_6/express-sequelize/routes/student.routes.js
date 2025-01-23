@@ -5,9 +5,11 @@ const {
   createStudent,
   updateStudent,
   deleteStudent,
+  getStudentIdentity,
 } = require("../controllers/student.controller");
 const router = express.Router();
 
+router.get("/studentId", getStudentIdentity);
 router.get("/", getAllStudent);
 router.get("/:id", getStudentById);
 router.post("/", createStudent);

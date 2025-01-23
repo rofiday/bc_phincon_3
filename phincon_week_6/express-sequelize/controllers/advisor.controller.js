@@ -1,7 +1,39 @@
-const { Advisor, Student } = require("../models");
+const { Advisor, Students, sequelize } = require("../models");
 const { v4: uuidv4 } = require("uuid");
+const { QueryTypes } = require("sequelize");
 
 module.exports = {
+  getStudentName: async (req, res) => {
+    try {
+      /**
+       const advisors = await Advisor.findAll({
+        attributes: ["id", "fullname", "major"],
+        include: [
+          {
+            model: Students,
+            attributes: ["name"],
+          },
+        ],
+      });
+      */
+      const advisors = await sequelize.query(
+        `SELECT a.id, a.fullname, s.name FROM Advisors a INNER JOIN Students s ON a.id = s.advisorId;`,
+        { type: QueryTypes.SELECT }
+      );
+
+      if (!advisors) {
+        return res.status(404).json({ message: "No advisors found" });
+      }
+      res.status(200).json({
+        status: "success",
+        data: advisors,
+        message: "Successfully retrieved advisor list",
+      });
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).json({ message: error.message });
+    }
+  },
   getAllAdvisors: async (req, res) => {
     try {
       const advisors = await Advisor.findAll({

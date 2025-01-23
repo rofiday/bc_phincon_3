@@ -1,7 +1,34 @@
-const { Student, Advisor, Thesis } = require("../models");
+const { Student, Advisor, Thesis, sequelize } = require("../models");
 const { v4: uuidv4 } = require("uuid");
 
 module.exports = {
+  getStudentIdentity: async (req, res) => {
+    try {
+      // const student = await sequelize.query(
+      //   `SELECT id, name, admissionYear, CONCAT(name, " ", admissionYear) AS studentIdentity FROM Students`,
+      //   { type: sequelize.QueryTypes.SELECT }
+      // );
+      const student = await Student.findAll({
+        attributes: {
+          include: [
+            [
+              sequelize.literal(`CONCAT(name, " ", admissionYear)`),
+              "studentIdentity",
+            ],
+          ],
+        },
+      });
+      console.log(student);
+      res.status(200).json({
+        status: "success",
+        data: student,
+        message: "Success get all students",
+      });
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send(error.message);
+    }
+  },
   getAllStudent: async (req, res) => {
     try {
       const students = await Student.findAll({

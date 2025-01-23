@@ -7,8 +7,10 @@ const {
   createAdvisor,
   updateAdvisor,
   deleteAdvisor,
+  getStudentName,
 } = require("../controllers/advisor.controller");
 
+router.get("/join", getStudentName);
 router.get("/", getAllAdvisors);
 router.get("/:id", getAdvisorById);
 router.post("/", createAdvisor);

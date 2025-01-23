@@ -5,7 +5,11 @@ const fs = require("fs");
 module.exports = {
   getAllProducts: (req, res) => {
     try {
-      res.status(200).json(products);
+      const productFS = JSON.parse(
+        fs.readFileSync("assets/jsons/products-json.json", "utf-8")
+      );
+
+      res.status(200).send(productFS);
     } catch (error) {
       console.log(error.message);
       res.status(500).json({ message: error.message });
@@ -23,6 +27,7 @@ module.exports = {
     }
   },
   createDataProduct: (req, res) => {
+    console.log(req.body);
     const product = fs.readFileSync(filePath, "utf-8");
     const parsedProduct = JSON.parse(product).products;
     let newId = parsedProduct.length + 1;
@@ -60,7 +65,10 @@ module.exports = {
   },
   deleteDataProductById: (req, res) => {
     const { id } = req.params;
-    const index = products.products.findIndex((product) => product.id == id);
+    console.log("id: ", id);
+    const index = products.products.findIndex(
+      (product) => product.id === Number(id)
+    );
     console.log(index);
     if (index !== -1) {
       products.products.splice(index, 1);

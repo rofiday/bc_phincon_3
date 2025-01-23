@@ -1,53 +1,91 @@
-import { useEffect, useState } from "react";
-import { getApiProducts } from "../services/api";
-import FormProduct from "./FormProduct";
-const ProductList = () => {
-  const [products, setProduct] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
-  const [isOpenForm, setIsOpenForm] = useState(false);
+/* eslint-disable react/prop-types */
+import DataTable from "react-data-table-component";
+const ProductList = ({
+  setModalIsOpen,
+  products,
+  setData,
+  setMode,
+  setModalDeleteIsOpen,
+}) => {
+  const columns = [
+    {
+      name: "No",
+      selector: (row, index) => index + 1,
+      width: "50px",
+    },
+    {
+      name: "Name",
+      selector: (row) => row.name,
+      wrap: true,
+      width: "168px",
+    },
+    {
+      name: "Price",
+      selector: (row) => row.price,
+      width: "168px",
+    },
+    {
+      name: "Category",
+      selector: (row) => row.category,
+      width: "168px",
+    },
+    {
+      name: "Stock",
+      selector: (row) => row.stock,
+      width: "168px",
+    },
+    {
+      name: "Actions",
+      cell: (row) => (
+        <div className="flex gap-1 items-center">
+          <button
+            onClick={() => {
+              setData(row);
+              console.log("Edit", row);
+              setModalIsOpen(true);
+              setMode("update");
+            }}
+            className="bg-green-600 py-1 px-2 rounded-sm tracking-wide min-w-24"
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => {
+              setData(row);
+              setModalDeleteIsOpen(true);
+            }}
+            className="bg-red-600 py-1 px-2 rounded-sm tracking-wide min-w-24"
+          >
+            Delete
+          </button>
+        </div>
+      ),
+    },
+  ];
 
-  const handleForm = () => {
-    setIsOpenForm(!isOpenForm);
-    console.log(isOpenForm);
-  };
-  useEffect(() => {
-    (async () => {
-      console.log(await getApiProducts());
-      setProduct(await getApiProducts());
-    })();
-  }, []);
   return (
-    <div className="text-center mt-24">
-      <h2>Product List</h2>
-      <button onClick={handleForm}>Create Data Product</button>
-      {isOpenForm && <FormProduct />}
-      <div className="container mx-auto overflow-x-auto mt-7">
-        <table className="table w-1/2 mx-auto">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Category</th>
-              <th>Stock</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products?.products?.map((product) => (
-              <tr key={product.id}>
-                <td>{product.name}</td>
-                <td>{product.price}</td>
-                <td>{product.category}</td>
-                <td>{product.stock}</td>
-                <td>
-                  <button>Edit</button>
-                  <button>Edit</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    <div className="cointainer mx-auto w-[80%] mt-10 ">
+      <div className="flex flex-col">
+        <h1>Product List</h1>
+        <div className="flex justify-between my-2 items-center">
+          <button
+            className="bg-blue-500 text-white py-2 px-2 rounded-sm"
+            onClick={() => {
+              setModalIsOpen(true);
+              setMode("create");
+            }}
+          >
+            + Create Product
+          </button>
+          <h3>Total Product: {products.length}</h3>
+        </div>
+        <DataTable
+          columns={columns}
+          data={products}
+          pagination
+          responsive
+          className="text-center"
+        />
       </div>
     </div>
   );

@@ -5,9 +5,15 @@ const {
   createProduct,
   updateProduct,
   deleteProduct,
+  getProductDiscount,
+  getMaxPrice,
+  getStockCount,
 } = require("../controllers/product.controller");
 const router = express.Router();
 
+router.get("/queryStock", getStockCount);
+router.get("/maxPrice", getMaxPrice);
+router.get("/query", getProductDiscount);
 router.get("/", getAllProducts);
 router.get("/:id", getProductById);
 router.post("/", createProduct);

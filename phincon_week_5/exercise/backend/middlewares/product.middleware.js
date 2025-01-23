@@ -3,6 +3,7 @@ const Joi = require("joi");
 module.exports = {
   validatorCreateProducts: (req, res, next) => {
     try {
+      console.log(req.body);
       const schema = Joi.object({
         name: Joi.string().required(),
         price: Joi.number().required(),
@@ -10,6 +11,7 @@ module.exports = {
         stock: Joi.number().required(),
       });
       const validatorError = schema.validate(req.body).error;
+      console.log(validatorError);
       if (validatorError) {
         return res
           .status(400)
